@@ -1,15 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="JoseQuizApp.Views.MainView">
+             x:Class="JoseQuizApp.Views.ManageDbView">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <Label Text="ManageDb View"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            <Button Text="Take Quiz" Command="{Binding btnTakeQuiz_Clicked}"/>
-            <Button Text="Manage DB" Command="{Binding btnManageDb_Clicked}"/>
-            <Button Text="Options" Command="{Binding btnOptions_Clicked}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

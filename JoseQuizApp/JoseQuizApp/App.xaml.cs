@@ -10,7 +10,6 @@ namespace JoseQuizApp
         public App()
         {
             InitializeComponent();
-
             MainPage = new NavigationPage(Resolver.Resolve<MainView>());
         }
 
