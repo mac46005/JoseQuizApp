@@ -7,9 +7,9 @@
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            <Button Text="Take Quiz" Command="{Binding btnTakeQuiz_Clicked}"/>
-            <Button Text="Manage DB" Command="{Binding btnManageDb_Clicked}"/>
-            <Button Text="Options" Command="{Binding btnOptions_Clicked}"/>
+            <Button Text="Take Quiz" Command="{Binding TakeQuiz_Clicked}"/>
+            <Button Text="Manage DB" Command="{Binding ManageDb_Clicked}"/>
+            <Button Text="Options" Command="{Binding Options_Clicked}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

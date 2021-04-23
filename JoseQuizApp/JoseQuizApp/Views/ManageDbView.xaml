@@ -4,9 +4,9 @@
              x:Class="JoseQuizApp.Views.ManageDbView">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="ManageDb View"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Add Question" Command="{Binding AddQuestion_Clicked}"/>
+            <Button Text="Add Answer" Command="{Binding AddAnswer_Clicked}"/>
+            <Button Text="View Lists" Command="{Binding ViewList_Clicked}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

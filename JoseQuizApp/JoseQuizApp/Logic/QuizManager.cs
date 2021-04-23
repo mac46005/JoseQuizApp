@@ -23,7 +23,7 @@ namespace JoseQuizApp.Logic
         }
         public async Task CreateQuiz()
         {
-            int numOfQuestions = int.Parse(_config.GetSection("Options")["QuestionCount"]);
+            int numOfQuestions = 10;//int.Parse(_config.GetSection("Options")["QuestionCount"]);
             Quiz = Resolver.Resolve<Quiz>();
             var listOfQuestions = await _questionRepository.GetItems();
             for (int i = 0; i < numOfQuestions; i++)

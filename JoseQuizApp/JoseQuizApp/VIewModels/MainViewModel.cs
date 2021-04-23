@@ -15,15 +15,15 @@ namespace JoseQuizApp.ViewModels
         }
 
 
-        public ICommand btnTakeQuiz_Clicked => new Command(async () =>
+        public ICommand TakeQuiz_Clicked => new Command(async () =>
         {
             await Navigation.PushAsync(Resolver.Resolve<QuizView>());
         });
-        public ICommand btnManageDb_Clicked => new Command(async () =>
+        public ICommand ManageDb_Clicked => new Command(async () =>
         {
             await Navigation.PushAsync(Resolver.Resolve<ManageDbView>());
         });
-        public ICommand btnOptions_Clicked => new Command(async () =>
+        public ICommand Options_Clicked => new Command(async () =>
         {
             await Navigation.PushAsync(Resolver.Resolve<OptionsView>());
         });
