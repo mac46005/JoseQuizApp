@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using JoseQuizApp.Models;
+using JoseQuizApp.Repositories;
 using JoseQuizApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,8 @@ namespace JoseQuizApp
 
             ContainerBuilder.RegisterType<Quiz>();
             // Singletons
+            ContainerBuilder.RegisterType<QuestionRepository>().SingleInstance();
+            ContainerBuilder.RegisterType<AnswerRepository>().SingleInstance();
 
         }
         private void FinishInitializing()

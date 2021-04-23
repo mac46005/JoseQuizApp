@@ -19,7 +19,7 @@
                     </TableSection>
                 </TableRoot>
             </TableView>
-            <Button Text="Submit"/>
+            <Button Text="Submit" Command="{Binding Submit_Clicked}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

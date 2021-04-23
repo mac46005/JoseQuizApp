@@ -8,11 +8,11 @@
             <TableView>
                 <TableRoot>
                     <TableSection>
-                        <EntryCell Label="Value:"/>
+                        <EntryCell Label="Value:" Text="{Binding Answer.Solution}"/>
                     </TableSection>
                 </TableRoot>
             </TableView>
-            <Button Text="Submit"/>
+            <Button Text="Submit" Command="{Binding Submit_Clicked}"/>
         </StackLayout>
         
     </ContentPage.Content>
