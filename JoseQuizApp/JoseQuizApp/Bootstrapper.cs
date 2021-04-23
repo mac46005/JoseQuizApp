@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using JoseQuizApp.Models;
 using JoseQuizApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,7 @@ namespace JoseQuizApp
                 .ToList()
                 .ForEach(t => ContainerBuilder.RegisterType(t.AsType()));
 
+            ContainerBuilder.RegisterType<Quiz>();
             // Singletons
 
         }
