@@ -22,13 +22,14 @@ namespace JoseQuizApp.VIewModels
         }
 
         public ObservableCollection<AnswerItemViewModel> AnswerList { get; set; } = new ObservableCollection<AnswerItemViewModel>();
-        public AnswerModel SelectedAnswer  
+        public AnswerModel AnswerSelected
         {
             get => null;
             set
             {
+                RaisePropertyChanged(nameof(AnswerSelected));
                 Task.Run(async () => await NavigateToItem(value));
-                RaisePropertyChanged(nameof(SelectedAnswer));
+                
             }
         }
         private async Task LoadData()
@@ -41,11 +42,10 @@ namespace JoseQuizApp.VIewModels
         }
         private async Task NavigateToItem(AnswerModel answer)
         {
-            var v = Resolver.Resolve<AddAnswerView>();
-            var vm = Resolver.Resolve<AddAnswerViewModel>();
-
-            vm.Answer = answer;
-
+            var v = Resolver.Resolve<ItemOptionsView>();
+            var vm = v.BindingContext as ItemOptionsViewModel;
+            answer.DisplayName = $"";
+            vm.ItemProp = answer;
             await Navigation.PushAsync(v);
         }
         private AnswerItemViewModel CreateAnswerItemVM(AnswerModel answer)

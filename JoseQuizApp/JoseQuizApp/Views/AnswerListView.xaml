@@ -6,7 +6,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ListView ItemsSource="{Binding AnswerList}">
+        <ListView ItemsSource="{Binding AnswerList}"
+                   SelectedItem="{Binding AnswerSelected}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -25,7 +26,6 @@
                             <Label Text="{Binding Answer.Id}" Grid.Column="1"/>
                             <Label Text="Value:" Grid.Column="2"/>
                             <Label Text="{Binding Answer.Solution}" Grid.Column="3"/>
-                            <Button Text="Options" Grid.Column="4" Command="{Binding Options_Clicked}"/>
                         </Grid>
 
                     </ViewCell>
