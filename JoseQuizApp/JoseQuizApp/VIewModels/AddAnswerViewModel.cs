@@ -17,7 +17,8 @@ namespace JoseQuizApp.VIewModels
         {
             _answerRepository = answerRepository;
         }
-        public AnswerModel Answer { get; set; }
+
+        public AnswerModel Answer { get; set; } = Resolver.Resolve<AnswerModel>();
 
         public ICommand Submit_Clicked => new Command(async () =>
         {

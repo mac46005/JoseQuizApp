@@ -21,13 +21,13 @@ namespace JoseQuizApp.VIewModels
             Task.Run(async () => await LoadData());
         }
 
-        public  ObservableCollection<AnswerItemViewModel> Answers { get; set; }
-        public AnswerModel SelectedAnswer 
+        public ObservableCollection<AnswerItemViewModel> AnswerList { get; set; } = new ObservableCollection<AnswerItemViewModel>();
+        public AnswerModel SelectedAnswer  
         {
             get => null;
             set
             {
-                CreateAnswerItemVM(value);
+                Task.Run(async () => await NavigateToItem(value));
                 RaisePropertyChanged(nameof(SelectedAnswer));
             }
         }
@@ -36,7 +36,7 @@ namespace JoseQuizApp.VIewModels
             var items = await _answerRepository.GetItems();
             items.ForEach(i => 
             {
-                Answers.Add(CreateAnswerItemVM(i));
+                AnswerList.Add(CreateAnswerItemVM(i));
             });
         }
         private async Task NavigateToItem(AnswerModel answer)

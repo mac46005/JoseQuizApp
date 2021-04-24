@@ -18,7 +18,7 @@ namespace JoseQuizApp.Repositories
                 return;
             }
 
-            var projPath = @"D:\GitHubRepo\JoseQuizApp\JoseQuizApp\JoseQuizApp\Db\";/*Environment.GetFolderPath(Environment.SpecialFolder.);*/
+            var projPath = /*@"D:\GitHubRepo\JoseQuizApp\JoseQuizApp\JoseQuizApp\Db\"*/Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             var dataBasePath = Path.Combine(projPath, "QuizDb.db");
 
             _connection = new SQLiteAsyncConnection(dataBasePath);

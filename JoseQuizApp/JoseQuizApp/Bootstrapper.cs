@@ -25,11 +25,13 @@ namespace JoseQuizApp
             //var currentAssembly = Assembly.GetExecutingAssembly();
             ContainerBuilder = new ContainerBuilder();
 
-            // Registers Types of Views and ViewModels
+            // Registers Types of Views and ViewModels and models
             Assembly.GetExecutingAssembly().DefinedTypes
-                .Where(t => (t.IsSubclassOf(typeof(ViewModel)) || (t.IsSubclassOf(typeof(Page)))))
+                .Where(t => (t.IsSubclassOf(typeof(ViewModel)) || t.IsSubclassOf(typeof(Page))))
                 .ToList()
                 .ForEach(t => ContainerBuilder.RegisterType(t.AsType()));
+            ContainerBuilder.RegisterType<AnswerModel>();
+            ContainerBuilder.RegisterType<QuestionModel>();
 
             ContainerBuilder.RegisterType<Quiz>();
             // Singletons

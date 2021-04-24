@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Button Text="Question List"/>
-            <Button Text="Answer List"/>
+            <Button Text="Answer List" Command="{Binding AnswerList_Clicked}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
