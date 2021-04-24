@@ -20,6 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\ItemOptionsView.xaml.cs">
+      <DependentUpon>ItemOptionsView.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\QuizView.xaml.cs">
       <DependentUpon>QuizView.xaml</DependentUpon>
     </Compile>
@@ -33,6 +36,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\AnswerListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ItemOptionsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ListMenuView.xaml">

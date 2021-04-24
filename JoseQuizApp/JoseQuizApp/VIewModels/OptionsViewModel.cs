@@ -7,5 +7,6 @@ namespace JoseQuizApp.VIewModels
 {
     public class OptionsViewModel : ViewModel
     {
+
     }
 }
