@@ -6,7 +6,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ListView ItemsSource="{Binding AnswerList}"
+        <ListView x:Name="ItemsListView" ItemsSource="{Binding AnswerList}"
                    SelectedItem="{Binding AnswerSelected}">
             <ListView.ItemTemplate>
                 <DataTemplate>

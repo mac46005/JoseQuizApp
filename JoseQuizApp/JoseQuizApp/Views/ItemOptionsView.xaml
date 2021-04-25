@@ -2,11 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JoseQuizApp.Views.ItemOptionsView">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding ItemProp.DisplayName}"/>
-            <Button Text="Edit"/>
-            <Button Text="Delete"/>
-        </StackLayout>
-    </ContentPage.Content>
+    <StackLayout>
+        <Label Text="{Binding ItemProp.DisplayName}"/>
+        <Button Text="Edit"/>
+        <Button Text="Delete"/>
+    </StackLayout>
 </ContentPage>

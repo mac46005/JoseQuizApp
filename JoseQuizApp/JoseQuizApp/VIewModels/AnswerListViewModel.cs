@@ -21,31 +21,36 @@ namespace JoseQuizApp.VIewModels
             Task.Run(async () => await LoadData());
         }
 
-        public ObservableCollection<AnswerItemViewModel> AnswerList { get; set; } = new ObservableCollection<AnswerItemViewModel>();
-        public AnswerModel AnswerSelected
+        public ObservableCollection<AnswerItemViewModel> AnswerList { get; set; }
+        public AnswerItemViewModel AnswerSelected
         {
             get => null;
             set
             {
-                RaisePropertyChanged(nameof(AnswerSelected));
-                Task.Run(async () => await NavigateToItem(value));
                 
+                Task.Run(async () => await NavigateToItem(value));
+                RaisePropertyChanged(nameof(AnswerSelected));
             }
         }
         private async Task LoadData()
         {
+            AnswerList = new ObservableCollection<AnswerItemViewModel>();
             var items = await _answerRepository.GetItems();
             items.ForEach(i => 
             {
                 AnswerList.Add(CreateAnswerItemVM(i));
             });
         }
-        private async Task NavigateToItem(AnswerModel answer)
+        private async Task NavigateToItem(AnswerItemViewModel answerItemVM)
         {
+            if (answerItemVM == null)
+            {
+                return;
+            }
             var v = Resolver.Resolve<ItemOptionsView>();
             var vm = v.BindingContext as ItemOptionsViewModel;
-            answer.DisplayName = $"";
-            vm.ItemProp = answer;
+            vm.ItemProp = answerItemVM.Answer;
+            vm.ItemProp.DisplayName = $"Type:{vm.ItemProp.GetType().Name}Id:{answerItemVM.Answer.Id}    Value:{answerItemVM.Answer.Solution}";
             await Navigation.PushAsync(v);
         }
         private AnswerItemViewModel CreateAnswerItemVM(AnswerModel answer)
