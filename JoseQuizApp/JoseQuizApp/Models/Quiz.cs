@@ -8,8 +8,8 @@ namespace JoseQuizApp.Models
 {
     public class Quiz
     {
-        public ObservableCollection<QuestionItemViewModel> ObservableQuestionsList { get; set; } = new ObservableCollection<QuestionItemViewModel>();
-        public ObservableCollection<AnswerItemViewModel> ObservableAnswersList { get; set; } = new ObservableCollection<AnswerItemViewModel>();
+        public List<QuestionItemViewModel> QuestionsList { get; set; } = new List<QuestionItemViewModel>();
+        public List<AnswerItemViewModel> AnswersList { get; set; } = new List<AnswerItemViewModel>();
         public List<UserResponse> UserResponses { get; set; } = new List<UserResponse>();
     }
 }

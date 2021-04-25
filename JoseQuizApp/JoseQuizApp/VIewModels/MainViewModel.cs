@@ -21,16 +21,17 @@ namespace JoseQuizApp.ViewModels
 
         public ICommand TakeQuiz_Clicked => new Command(async () =>
         {
-            await _quizManager.CreateQuiz();
+            //await _quizManager.CreateQuiz();
 
-            for (int i = 0; i < _quizManager.Quiz.ObservableQuestionsList.Count; i++)
+            for (int i = 0; i < 10/*_quizManager.Quiz.QuestionsList.Count*/; i++)
             {
                 var v = Resolver.Resolve<QuizView>();
                 var vm = v.BindingContext as QuizViewModel;
-                vm.QuestionCount = $"QUIZ Question: {i} of {_quizManager.Quiz.ObservableQuestionsList.Count}";
-                vm.Question = _quizManager.Quiz.ObservableQuestionsList[i];
-                vm.YourResponse = _quizManager.Quiz.UserResponses[i];
-                await Navigation.PushAsync(v);
+                //vm.QuestionCount = $"QUIZ Question: {i} of {_quizManager.Quiz.QuestionsList.Count}";
+                //vm.Question = _quizManager.Quiz.QuestionsList.ToArray()[i];
+                //vm.YourResponse = _quizManager.Quiz.UserResponses[i];
+                Navigation.PushAsync(v);
+                //_quizManager.Quiz.UserResponses[i] = vm.YourResponse;
             }
 
         });

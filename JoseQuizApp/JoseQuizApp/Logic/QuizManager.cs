@@ -33,23 +33,23 @@ namespace JoseQuizApp.Logic
                 var randNum = new Random().Next(listOfQuestions.Count);
                 var vm = Resolver.Resolve<QuestionItemViewModel>();
                 vm.Question = listOfQuestions[randNum];
-                Quiz.ObservableQuestionsList[i] = vm;
+                Quiz.QuestionsList.Add(vm);
             }
-            Quiz.ObservableQuestionsList.ForEach(async q =>
+            Quiz.QuestionsList.ForEach(async q =>
             {
                 int count = 0;
-                Quiz.ObservableAnswersList[count].Answer = await _answerRepository
+                Quiz.AnswersList[count].Answer = await _answerRepository
                 .GetItem_ById(
                     Quiz
-                    .ObservableQuestionsList[count]
+                    .QuestionsList[count]
                     .Question
                     .Answer_Id);
             }
             );
         }
-        public void TakeQuiz()
+        public void TakeQuiz(int count)
         {
-
+            
         }
         public ResultsViewModel EvaluateQuiz()
         {
