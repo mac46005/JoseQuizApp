@@ -14,6 +14,6 @@ namespace JoseQuizApp.Repositories
         Task UpdateItem(T item);
         Task AddOrUpdateItem(T item);
         Task DeleteItem(T item);
-        Task<T> GetItem_ByItem(int id);
+        Task<T> GetItem_ById(int id);
     }
 }

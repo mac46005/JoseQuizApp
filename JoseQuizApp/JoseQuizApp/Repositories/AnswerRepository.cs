@@ -57,7 +57,7 @@ namespace JoseQuizApp.Repositories
             return await _connection.Table<AnswerModel>().ToListAsync();
         }
 
-        public async Task<AnswerModel> GetItem_ByItem(int id)
+        public async Task<AnswerModel> GetItem_ById(int id)
         {
             await Connect();
             return await _connection.FindAsync<AnswerModel>(id);

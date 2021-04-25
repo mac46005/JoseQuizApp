@@ -6,18 +6,20 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
+using Xamarin.Forms.Internals;
 
 namespace JoseQuizApp.Logic
 {
     public class QuizManager
     {
-        private readonly IConfiguration _config;
+        //private readonly IConfiguration _config = new ConfigurationBuilder().AddJsonFile(@"E:\C#\GitHub_Repositories\JoseQuizApp_SLN\JoseQuizApp\JoseQuizApp\appsettings.json")
+            //.Build();
         private readonly AnswerRepository _answerRepository;
         private readonly QuestionRepository _questionRepository;
         public Quiz Quiz { get; set; }
-        public QuizManager(IConfiguration _config,AnswerRepository answerRepository,QuestionRepository questionRepository)
+        public QuizManager(AnswerRepository answerRepository,QuestionRepository questionRepository)
         {
-            this._config = _config;
             _answerRepository = answerRepository;
             _questionRepository = questionRepository;
         }
@@ -29,9 +31,21 @@ namespace JoseQuizApp.Logic
             for (int i = 0; i < numOfQuestions; i++)
             {
                 var randNum = new Random().Next(listOfQuestions.Count);
-                Quiz.Questions.Add(listOfQuestions[randNum]);
+                var vm = Resolver.Resolve<QuestionItemViewModel>();
+                vm.Question = listOfQuestions[randNum];
+                Quiz.ObservableQuestionsList[i] = vm;
             }
-            Quiz.Questions.ForEach(q => { Quiz.Answers.Add(new AnswerModel { Id = q.Answer_Id }); });
+            Quiz.ObservableQuestionsList.ForEach(async q =>
+            {
+                int count = 0;
+                Quiz.ObservableAnswersList[count].Answer = await _answerRepository
+                .GetItem_ById(
+                    Quiz
+                    .ObservableQuestionsList[count]
+                    .Question
+                    .Answer_Id);
+            }
+            );
         }
         public void TakeQuiz()
         {
