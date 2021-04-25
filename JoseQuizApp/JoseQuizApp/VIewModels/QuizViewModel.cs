@@ -43,13 +43,13 @@ namespace JoseQuizApp.VIewModels
         public ICommand Next_Clicked => new Command(async () =>
         {
             _quizManager.Quiz.UserResponses.Add(YourResponse);
-            if (Count == _quizManager.Quiz.QuestionsList.Count)
+            if (Count == _quizManager.Quiz.QuestionsList.Count-1)
             {
                 //results page
                 var v = Resolver.Resolve<ResultsView>();
                 var vm = v.BindingContext as ResultsViewModel;
                 vm = _quizManager.EvaluateQuiz();
-                await Navigation.PushAsync(v);
+                await Navigation.PushModalAsync(v);
             }
             else
             {
@@ -58,7 +58,7 @@ namespace JoseQuizApp.VIewModels
                 var vm = v.BindingContext as QuizViewModel;
                 vm.Count += Count + 1;
                 vm.LoadQuestion();
-                await Navigation.PushAsync(v);
+                await Navigation.PushModalAsync(v);
             }
         });
     }

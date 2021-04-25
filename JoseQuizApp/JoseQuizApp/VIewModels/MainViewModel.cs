@@ -25,7 +25,7 @@ namespace JoseQuizApp.ViewModels
             var v = Resolver.Resolve<QuizView>();
             var vm = v.BindingContext as QuizViewModel;
             vm.LoadQuestion();
-            await Navigation.PushAsync(v);
+            await Navigation.PushModalAsync(v);
         });
         public ICommand ManageDb_Clicked => new Command(async () =>
         {

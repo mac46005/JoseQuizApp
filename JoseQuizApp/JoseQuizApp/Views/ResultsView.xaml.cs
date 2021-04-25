@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JoseQuizApp.VIewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,12 @@ namespace JoseQuizApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ResultsView : ContentPage
     {
-        public ResultsView()
+        public ResultsView(ResultsViewModel vm)
         {
             InitializeComponent();
+            vm.Navigation = Navigation;
+            BindingContext = vm;
+
         }
     }
 }

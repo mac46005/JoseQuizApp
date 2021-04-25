@@ -30,7 +30,7 @@ namespace JoseQuizApp.Logic
             var listOfQuestions = await _questionRepository.GetItems();
             for (int i = 0; i < numOfQuestions; i++)
             {
-                var randNum = new Random().Next(listOfQuestions.Count);
+                var randNum = new Random().Next(listOfQuestions.Count-1);
                 var vm = Resolver.Resolve<QuestionItemViewModel>();
                 vm.Question = listOfQuestions[randNum];
                 Quiz.QuestionsList.Add(vm);

@@ -2,12 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JoseQuizApp.Views.ResultsView">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Your Results"/>
-            <Label Text="{Binding CorrectQuestions}"/>
-            <Label Text="{Binding TotalQuestions}"/>
-            <Label Text="{Binding Accuracy}"/>
-        </StackLayout>
-    </ContentPage.Content>
+    <StackLayout>
+        <Label Text="Your Results"/>
+        <Label Text="{Binding CorrectQuestions}"/>
+        <Label Text="{Binding TotalQuestions}"/>
+        <Label Text="{Binding Accuracy}"/>
+        <Button Text="Done"/>
+    </StackLayout>
 </ContentPage>
