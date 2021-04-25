@@ -7,6 +7,6 @@
         <Label Text="{Binding CorrectQuestions}"/>
         <Label Text="{Binding TotalQuestions}"/>
         <Label Text="{Binding Accuracy}"/>
-        <Button Text="Done"/>
+        <Button Text="Done" Command="{Binding Done_Clicked}"/>
     </StackLayout>
 </ContentPage>

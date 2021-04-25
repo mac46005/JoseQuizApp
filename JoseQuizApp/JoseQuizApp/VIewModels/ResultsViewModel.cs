@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace JoseQuizApp.VIewModels
 {
@@ -11,5 +13,11 @@ namespace JoseQuizApp.VIewModels
         public int CorrectQuestions { get; set; }
         public int TotalQuestions { get; set; }
         public string Accuracy { get; set; }
+
+
+        public ICommand Done_Clicked => new Command(async () =>
+        {
+            await Navigation.PopToRootAsync();
+        });
     }
 }

@@ -16,6 +16,7 @@ namespace JoseQuizApp.Views
         public ResultsView(ResultsViewModel vm)
         {
             InitializeComponent();
+
             vm.Navigation = Navigation;
             BindingContext = vm;
 

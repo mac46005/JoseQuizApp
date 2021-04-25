@@ -49,7 +49,7 @@ namespace JoseQuizApp.VIewModels
                 var v = Resolver.Resolve<ResultsView>();
                 var vm = v.BindingContext as ResultsViewModel;
                 vm = _quizManager.EvaluateQuiz();
-                await Navigation.PushModalAsync(v);
+                await Navigation.PushAsync(v);
             }
             else
             {
@@ -58,7 +58,8 @@ namespace JoseQuizApp.VIewModels
                 var vm = v.BindingContext as QuizViewModel;
                 vm.Count += Count + 1;
                 vm.LoadQuestion();
-                await Navigation.PushModalAsync(v);
+                await Navigation.PushAsync(v);
+                
             }
         });
     }
