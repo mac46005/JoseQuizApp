@@ -1,5 +1,4 @@
-﻿using JoseQuizApp.VIewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,13 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace JoseQuizApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class QuizView : ContentPage
+    public partial class ResultsView : ContentPage
     {
-        public QuizView(QuizViewModel vm)
+        public ResultsView()
         {
             InitializeComponent();
-            vm.Navigation = Navigation;
-            BindingContext = vm;
         }
     }
 }

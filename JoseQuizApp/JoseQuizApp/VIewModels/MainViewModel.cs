@@ -21,11 +21,11 @@ namespace JoseQuizApp.ViewModels
 
         public ICommand TakeQuiz_Clicked => new Command(async () =>
         {
-            _quizManager.CreateQuiz();
+            await _quizManager.CreateQuiz();
             var v = Resolver.Resolve<QuizView>();
             var vm = v.BindingContext as QuizViewModel;
             vm.LoadQuestion();
-            Navigation.PushAsync(v);
+            await Navigation.PushAsync(v);
         });
         public ICommand ManageDb_Clicked => new Command(async () =>
         {

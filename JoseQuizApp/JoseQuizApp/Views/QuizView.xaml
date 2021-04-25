@@ -5,13 +5,11 @@
              Title="{Binding QuestionCount}">
     <StackLayout>
         <TableView>
-            <TableRoot>
-                <TableSection>
-                    <TextCell Text="{Binding Question.Query}"/>
-                    <EntryCell Label="Your Response:" Text="{Binding YourResponse.Response}"/>
-                </TableSection>
-            </TableRoot>
+            <TableSection>
+                <TextCell Text="{Binding QuestionVM.Question.Query}"/>
+                <EntryCell Label="Your Response:" Text="{Binding YourResponse.Response}"/>
+            </TableSection>
         </TableView>
-        <Button Text="Next" Command="{Binding Next_CLicked}"/>
+        <Button Text="Next" Command="{Binding Next_Clicked}"/>
     </StackLayout>
 </ContentPage>

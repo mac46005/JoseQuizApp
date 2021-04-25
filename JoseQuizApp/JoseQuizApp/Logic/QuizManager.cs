@@ -43,13 +43,42 @@ namespace JoseQuizApp.Logic
             }
             );
         }
+
+
         public void TakeQuiz(int count)
         {
             
         }
+
+
+
+
         public ResultsViewModel EvaluateQuiz()
         {
-            return Resolver.Resolve<ResultsViewModel>();
+            var vm = Resolver.Resolve<ResultsViewModel>();
+
+
+            for (int i = 0; i < Quiz.UserResponses.Count; i++)
+            {
+                if (Quiz.UserResponses[i].Response == Quiz.AnswersList[i].Answer.Solution)
+                {
+                    Quiz.UserResponses[i].IsCorrect = true;
+                }
+            }
+            var numCorrect = 0;
+            Quiz.UserResponses.ForEach(r => 
+            {
+                if (r.IsCorrect)
+                {
+                    numCorrect++;
+                }
+            });
+
+            vm.CorrectQuestions = numCorrect;
+            vm.TotalQuestions = Quiz.UserResponses.Count;
+            var percent = ((numCorrect / Quiz.UserResponses.Count) * 100).ToString("P");
+            vm.Accuracy = $"{percent}";
+            return vm;
         }
     }
 }
