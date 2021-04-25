@@ -4,7 +4,7 @@
              x:Class="JoseQuizApp.Views.ItemOptionsView">
     <StackLayout>
         <Label Text="{Binding ItemProp.DisplayName}"/>
-        <Button Text="Edit"/>
-        <Button Text="Delete"/>
+        <Button Text="Edit" Command="{Binding Edit_Clicked}"/>
+        <Button Text="Delete" Command="{Binding Delete_Clicked}"/>
     </StackLayout>
 </ContentPage>

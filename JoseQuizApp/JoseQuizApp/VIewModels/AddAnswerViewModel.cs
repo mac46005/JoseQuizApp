@@ -22,8 +22,9 @@ namespace JoseQuizApp.VIewModels
 
         public ICommand Submit_Clicked => new Command(async () =>
         {
-            await _answerRepository.AddItem(Answer);
-            await Navigation.PopAsync();
+            await _answerRepository.AddOrUpdateItem(Answer);
+
+            await Navigation.PopToRootAsync();
         });
     }
 }

@@ -56,7 +56,7 @@ namespace JoseQuizApp.VIewModels
             {
                 await _questionRepository.DeleteItem((QuestionModel)ItemProp);
             }
-            await Navigation.PopAsync();
+            await Navigation.PopToRootAsync();
         });
     }
 }

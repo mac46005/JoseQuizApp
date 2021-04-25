@@ -13,6 +13,7 @@
                         <ViewCell>
                             <Picker ItemsSource="{Binding AnswerList}"
                                     SelectedItem="{Binding SelectedAnswer}"
+                                    ItemDisplayBinding="{Binding Solution}"
                                     >
                             </Picker>
                         </ViewCell>
