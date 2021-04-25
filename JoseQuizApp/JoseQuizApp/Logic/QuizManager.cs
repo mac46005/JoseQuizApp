@@ -37,13 +37,9 @@ namespace JoseQuizApp.Logic
             }
             Quiz.QuestionsList.ForEach(async q =>
             {
-                int count = 0;
-                Quiz.AnswersList[count].Answer = await _answerRepository
-                .GetItem_ById(
-                    Quiz
-                    .QuestionsList[count]
-                    .Question
-                    .Answer_Id);
+                var vm = Resolver.Resolve<AnswerItemViewModel>();
+                vm.Answer = await _answerRepository.GetItem_ById(q.Question.Answer_Id);
+                Quiz.AnswersList.Add(vm);
             }
             );
         }

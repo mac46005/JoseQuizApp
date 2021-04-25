@@ -3,16 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JoseQuizApp.Views.QuizView"
              Title="{Binding QuestionCount}">
-    <ContentPage.Content>
-        <StackLayout>
-            <TableView>
-                <TableRoot>
-                    <TableSection>
-                        <TextCell Text="{Binding Question.Query}"/>
-                        <EntryCell Label="Your Response:" Text="{Binding YourResponse}"/>
-                    </TableSection>
-                </TableRoot>
-            </TableView>
-        </StackLayout>
-    </ContentPage.Content>
+    <StackLayout>
+        <TableView>
+            <TableRoot>
+                <TableSection>
+                    <TextCell Text="{Binding Question.Query}"/>
+                    <EntryCell Label="Your Response:" Text="{Binding YourResponse.Response}"/>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+        <Button Text="Next" Command="{Binding Next_CLicked}"/>
+    </StackLayout>
 </ContentPage>
