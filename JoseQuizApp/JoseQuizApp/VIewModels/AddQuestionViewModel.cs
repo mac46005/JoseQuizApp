@@ -35,6 +35,7 @@ namespace JoseQuizApp.VIewModels
 
         public ICommand Submit_Clicked => new Command(async () =>
         {
+            Question.Answer_Id = SelectedAnswer.Id;
             await _questionRepository.AddOrUpdateItem(Question);
             await Navigation.PopToRootAsync();
         });

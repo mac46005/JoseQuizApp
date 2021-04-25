@@ -8,7 +8,7 @@
             <TableView>
                 <TableRoot>
                     <TableSection>
-                        <EntryCell Label="Value:"/>
+                        <EntryCell Label="Value:" Text="{Binding Question.Query}"/>
                         <TextCell Text="Select Answer"/>
                         <ViewCell>
                             <Picker ItemsSource="{Binding AnswerList}"
