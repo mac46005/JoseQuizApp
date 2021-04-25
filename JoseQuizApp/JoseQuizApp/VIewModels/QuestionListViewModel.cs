@@ -1,6 +1,7 @@
 ﻿using JoseQuizApp.Models;
 using JoseQuizApp.Repositories;
 using JoseQuizApp.ViewModels;
+using JoseQuizApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -35,6 +36,29 @@ namespace JoseQuizApp.VIewModels
             var vm = Resolver.Resolve<QuestionItemViewModel>();
             vm.Question = question;
             return vm;
+        }
+
+        public QuestionItemViewModel QuestionSelected 
+        {
+            get => null;
+            set
+            {
+                Task.Run(async () => await NavigateToItem(value));
+                RaisePropertyChanged(nameof(QuestionSelected));
+            }
+        }
+
+        private async Task NavigateToItem(QuestionItemViewModel qIVM)
+        {
+            if (qIVM == null)
+            {
+                return;
+            }
+            var v = Resolver.Resolve<ItemOptionsView>();
+            var vm = v.BindingContext as ItemOptionsViewModel;
+            vm.ItemProp = qIVM.Question;
+            vm.ItemProp.DisplayName = $"Id: {qIVM.Question.Id} Question:{qIVM.Question.Query}";
+            await Navigation.PushAsync(v);
         }
     }
 }

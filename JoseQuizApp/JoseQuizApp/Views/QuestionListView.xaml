@@ -7,7 +7,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <ListView x:Name="ItemsListView" ItemsSource="{Binding QuestionList}"
-                   SelectedItem="{Binding AnswerSelected}">
+                   SelectedItem="{Binding QuestionSelected}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -16,15 +16,15 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="38"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Label Text="Id." Grid.Column="0"/>
                             <Label Text="{Binding Question.Id}" Grid.Column="1"/>
                             <Label Text="Value:" Grid.Column="2"/>
-                            <Label Text="{Binding Question.Solution}" Grid.Column="3"/>
+                            <Label Text="{Binding Question.Query}" Grid.Column="3"/>
                         </Grid>
 
                     </ViewCell>

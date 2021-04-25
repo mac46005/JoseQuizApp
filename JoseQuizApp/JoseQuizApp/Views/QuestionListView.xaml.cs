@@ -18,6 +18,7 @@ namespace JoseQuizApp.Views
             InitializeComponent();
             vm.Navigation = Navigation;
             BindingContext = vm;
+            ItemsListView.ItemSelected += (s, e) => ItemsListView.SelectedItem = null;
         }
     }
 }

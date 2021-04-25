@@ -10,9 +10,14 @@ namespace JoseQuizApp.VIewModels
 {
     public class ListMenuViewModel : ViewModel
     {
+
+        public ICommand QuestionList_Clicked => new Command(async () =>
+        {
+            await Navigation.PushAsync(Resolver.Resolve<QuestionListView>());
+        });
         public ICommand AnswerList_Clicked => new Command(async () =>
-           {
-               await Navigation.PushAsync(Resolver.Resolve<AnswerListView>());
-           });
+        {
+            await Navigation.PushAsync(Resolver.Resolve<AnswerListView>());
+        });
     }
 }

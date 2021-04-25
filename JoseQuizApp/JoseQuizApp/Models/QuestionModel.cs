@@ -5,7 +5,7 @@ using System.Text;
 
 namespace JoseQuizApp.Models
 {
-    public class QuestionModel
+    public class QuestionModel : IItemModel
     {
         [PrimaryKey,AutoIncrement]
         public int Id { get; set; }
@@ -14,5 +14,6 @@ namespace JoseQuizApp.Models
         public int Answer_Id { get; set; }
         [Ignore]
         public AnswerModel Answer { get; set; }
+        public string DisplayName { get; set; }
     }
 }
