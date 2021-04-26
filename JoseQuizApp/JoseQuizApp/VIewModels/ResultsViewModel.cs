@@ -1,4 +1,5 @@
-﻿using JoseQuizApp.ViewModels;
+﻿using JoseQuizApp.Logic;
+using JoseQuizApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,6 +11,7 @@ namespace JoseQuizApp.VIewModels
 {
     public class ResultsViewModel : ViewModel
     {
+        public ObservableCollection<ResultsListViewModel> ObsList_RLVM { get; set; } = new ObservableCollection<ResultsListViewModel>();
         public int CorrectQuestions { get; set; }
         public int TotalQuestions { get; set; }
         public string Accuracy { get; set; }

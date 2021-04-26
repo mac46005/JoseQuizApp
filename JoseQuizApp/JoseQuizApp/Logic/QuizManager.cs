@@ -76,6 +76,23 @@ namespace JoseQuizApp.Logic
 
             vm.CorrectQuestions = numCorrect;
             vm.TotalQuestions = Quiz.UserResponses.Count;
+            for (int i = 0; i < Quiz.QuestionsList.Count-1; i++)
+            {
+                vm.ObsList_RLVM.Add(new ResultsListViewModel
+                {
+                    Question = Quiz.QuestionsList[i].Question,
+                    
+                    UserResponse = Quiz.UserResponses[i]
+                });
+            }
+            vm.ObsList_RLVM.ForEach(rlvm => 
+            {
+                rlvm.Question.Answer = Quiz.AnswersList.Find(aVM => aVM.Answer.Id == rlvm.Question.Answer_Id).Answer;
+            });
+
+
+
+
             var percent = ((numCorrect / Quiz.UserResponses.Count) * 100).ToString("P");
             vm.Accuracy = $"{percent}";
             return vm;

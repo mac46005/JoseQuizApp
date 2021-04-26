@@ -1,12 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="JoseQuizApp.Views.ResultsView">
-    <StackLayout>
+             x:Class="JoseQuizApp.Views.ResultsView"
+             xmlns:converters="clr-namespace:JoseQuizApp.Converters">
+    <!--<StackLayout>
         <Label Text="Your Results"/>
         <Label Text="{Binding CorrectQuestions}"/>
         <Label Text="{Binding TotalQuestions}"/>
         <Label Text="{Binding Accuracy}"/>
         <Button Text="Done" Command="{Binding Done_Clicked}"/>
-    </StackLayout>
+    </StackLayout>-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ResultItemColorConverter x:Key="cConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Text="Correct Questions:"/>
+        <Label Text="{Binding CorrectQuestions}"/>
+        <Label Text="Total Questions:"/>
+        <Label Text="{Binding TotalQuestions}"/>
+        <Label Text="Accuracy:"/>
+        <Label Text="{Binding Accuracy}"/>
+        <ListView ItemsSource="{Binding ObsList_RLVM}" 
+            RowHeight="100">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid BackgroundColor="{Binding UserResponse.IsCorrect}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Text="Question"/>
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Question.Query}"/>
+                        <Label Grid.Row="1" Grid.Column="0" Text="Your Answer"/>
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding UserResponse.Response}"/>
+                        <Label Grid.Row="2" Grid.Column="0" Text="The Answer"/>
+                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding Question.Answer.Solution}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
 </ContentPage>

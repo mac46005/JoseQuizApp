@@ -1,12 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="JoseQuizApp.Views.MainView">
+             x:Class="JoseQuizApp.Views.MainView"
+             Title="Code Quiz">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize"
+                    Value="Large"/>
+            <Setter Property="HorizontalOptions"
+                    Value="Center"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontAttributes"
+                    Value="Bold"/>
+        </Style>
+        
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout VerticalOptions="Start">
+            <Label Text="Jose test yourself!" FontAttributes="Bold" FontSize="50"/>
+            <Label Text="MainMenu" FontAttributes="Italic" FontSize="35"/>
             <Button Text="Take Quiz" Command="{Binding TakeQuiz_Clicked}"/>
             <Button Text="Manage DB" Command="{Binding ManageDb_Clicked}"/>
             <Button Text="Options" Command="{Binding Options_Clicked}"/>

@@ -1,12 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="JoseQuizApp.Views.ManageDbView">
-    <ContentPage.Content>
-        <StackLayout>
-            <Button Text="Add Question" Command="{Binding AddQuestion_Clicked}"/>
-            <Button Text="Add Answer" Command="{Binding AddAnswer_Clicked}"/>
-            <Button Text="View Lists" Command="{Binding ViewList_Clicked}"/>
-        </StackLayout>
-    </ContentPage.Content>
+             x:Class="JoseQuizApp.Views.ManageDbView"
+             Title="DB Manager">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalOptions"
+                    Value="Center"/>
+        </Style>
+    </ContentPage.Resources>
+    <StackLayout>
+        <Label Text="DB Menu" FontAttributes="Italic" FontSize="35"/>
+        <Button Text="Add Question" Command="{Binding AddQuestion_Clicked}"/>
+        <Button Text="Add Answer" Command="{Binding AddAnswer_Clicked}"/>
+        <Button Text="View Lists" Command="{Binding ViewList_Clicked}"/>
+    </StackLayout>
 </ContentPage>

@@ -3,6 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JoseQuizApp.App">
     <Application.Resources>
-
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarTextColor"
+                    Value="#f2f2f2"/>
+            <Setter Property="BarBackgroundColor"
+                    Value="#262626"/>
+            <Setter Property="BackgroundColor"
+                    Value="#47476b"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="#f2f2f2"/>
+        </Style>
     </Application.Resources>
 </Application>
