@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JoseQuizApp.Views.ResultsView"
-             xmlns:converters="clr-namespace:JoseQuizApp.Converters">
+             xmlns:converters="clr-namespace:JoseQuizApp.Converters"
+             Title="Your Results" NavigationPage.HasBackButton="False">
     <!--<StackLayout>
         <Label Text="Your Results"/>
         <Label Text="{Binding CorrectQuestions}"/>
@@ -17,23 +18,32 @@
     </ContentPage.Resources>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Label Text="Correct Questions:"/>
-        <Label Text="{Binding CorrectQuestions}"/>
-        <Label Text="Total Questions:"/>
-        <Label Text="{Binding TotalQuestions}"/>
-        <Label Text="Accuracy:"/>
-        <Label Text="{Binding Accuracy}"/>
-        <ListView ItemsSource="{Binding ObsList_RLVM}" 
+        
+        <Label Grid.Row="0" Grid.Column="0" Text="Correct Questions:"/>
+        <Label Grid.Row="0" Grid.Column="1" Text="{Binding CorrectQuestions}"/>
+        
+        <Label Grid.Row="1" Grid.Column="0" Text="Total Questions:"/>
+        <Label Grid.Row="1" Grid.Column="1" Text="{Binding TotalQuestions}"/>
+        
+        <Label Grid.Row="2" Grid.Column="0" Text="Accuracy:"/>
+        <Label Grid.Row="2" Grid.Column="1" Text="{Binding Accuracy}"/>
+        
+        <ListView
+            Grid.Row="3" Grid.ColumnSpan="2"
+            ItemsSource="{Binding ObsList_RLVM}" 
             RowHeight="100">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid BackgroundColor="{Binding UserResponse.IsCorrect}">
+                    <Grid BackgroundColor="{Binding UserResponse.IsCorrect,Converter={StaticResource cConverter}}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>

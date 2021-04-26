@@ -58,24 +58,31 @@ namespace JoseQuizApp.Logic
             var vm = Resolver.Resolve<ResultsViewModel>();
 
 
-            for (int i = 0; i < Quiz.UserResponses.Count; i++)
+            for (int i = 0; i < Quiz.UserResponses.Count-1; i++)
             {
                 if (Quiz.UserResponses[i].Response == Quiz.AnswersList[i].Answer.Solution)
                 {
                     Quiz.UserResponses[i].IsCorrect = true;
                 }
             }
+
+
+
             var numCorrect = 0;
             Quiz.UserResponses.ForEach(r => 
             {
                 if (r.IsCorrect)
                 {
-                    numCorrect++;
+                    numCorrect += numCorrect++;
                 }
             });
 
             vm.CorrectQuestions = numCorrect;
             vm.TotalQuestions = Quiz.UserResponses.Count;
+
+
+
+
             for (int i = 0; i < Quiz.QuestionsList.Count-1; i++)
             {
                 vm.ObsList_RLVM.Add(new ResultsListViewModel
@@ -85,6 +92,8 @@ namespace JoseQuizApp.Logic
                     UserResponse = Quiz.UserResponses[i]
                 });
             }
+
+
             vm.ObsList_RLVM.ForEach(rlvm => 
             {
                 rlvm.Question.Answer = Quiz.AnswersList.Find(aVM => aVM.Answer.Id == rlvm.Question.Answer_Id).Answer;

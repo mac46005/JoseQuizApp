@@ -37,7 +37,7 @@ namespace JoseQuizApp.VIewModels
                 return;
             }
             QuestionVM = _quizManager.Quiz.QuestionsList[Count];
-            QuestionCount = $"QUIZ: Question {Count} of {_quizManager.Quiz.QuestionsList.Count}";
+            QuestionCount = $"QUIZ: Question {Count} of {_quizManager.Quiz.QuestionsList.Count-1}";
         }
 
         public ICommand Next_Clicked => new Command(async () =>
