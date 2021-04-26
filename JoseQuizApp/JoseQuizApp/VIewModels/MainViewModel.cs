@@ -4,6 +4,7 @@ using JoseQuizApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -16,6 +17,10 @@ namespace JoseQuizApp.ViewModels
         public MainViewModel(QuizManager quizManager)
         {
             _quizManager = quizManager;
+            /////////////////////////////////////////////////////////
+            ///LoadThisOnce
+            Task.Run(async() => await _quizManager.LoadDataOnce());
+            /////////////////////////////////////////////////////////
         }
 
 

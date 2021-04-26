@@ -40,7 +40,7 @@
         <ListView
             Grid.Row="3" Grid.ColumnSpan="2"
             ItemsSource="{Binding ObsList_RLVM}" 
-            RowHeight="100">
+            RowHeight="78">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid BackgroundColor="{Binding UserResponse.IsCorrect,Converter={StaticResource cConverter}}">

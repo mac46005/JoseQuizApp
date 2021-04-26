@@ -7,7 +7,7 @@ namespace JoseQuizApp.Models
     public class UserResponse
     {
         public int Id { get; set; }
-        public string Response { get; set; }
+        public string Response { get; set; } = "None";
         public bool IsCorrect { get; set; }
     }
 }
