@@ -4,9 +4,12 @@
              x:Class="JoseQuizApp.Views.OptionsView">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Options View"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <TableView>
+                <TableSection>
+                    <EntryCell Label="Question Count:" Text="{Binding QuestionCount}"/>
+                </TableSection>
+            </TableView>
+            <Button Text="Apply" Command="{Binding Apply}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

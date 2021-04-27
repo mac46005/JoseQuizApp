@@ -18,6 +18,7 @@ namespace JoseQuizApp.Logic
         private readonly AnswerRepository _answerRepository;
         private readonly QuestionRepository _questionRepository;
         public Quiz Quiz { get; set; }
+        public int QuestionCount { get; set; } = 10;//<==Default;
         public QuizManager(AnswerRepository answerRepository, QuestionRepository questionRepository)
         {
             _answerRepository = answerRepository;
@@ -25,10 +26,9 @@ namespace JoseQuizApp.Logic
         }
         public async Task CreateQuiz()
         {
-            int numOfQuestions = 10;//int.Parse(_config.GetSection("Options")["QuestionCount"]);
             Quiz = Resolver.Resolve<Quiz>();
             var listOfQuestions = await _questionRepository.GetItems();
-            for (int i = 0; i < numOfQuestions; i++)
+            for (int i = 0; i < QuestionCount; i++)
             {
                 var randNum = new Random().Next(listOfQuestions.Count - 1);
                 var vm = Resolver.Resolve<QuestionItemViewModel>();

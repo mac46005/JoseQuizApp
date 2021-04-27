@@ -19,9 +19,6 @@ namespace JoseQuizApp.VIewModels
         public QuizViewModel(QuizManager quizManager)
         {
             _quizManager = quizManager;
-
-
-            
         }
 
         public string QuestionCount { get; set; }
@@ -47,7 +44,14 @@ namespace JoseQuizApp.VIewModels
             {
                 //results page
                 var v = Resolver.Resolve<ResultsView>();
-                v.BindingContext = _quizManager.EvaluateQuiz();
+
+                var vm = v.BindingContext as ResultsViewModel;
+                var PremadeVM = _quizManager.EvaluateQuiz();
+
+                vm.CorrectQuestions = PremadeVM.CorrectQuestions;
+                vm.TotalQuestions = PremadeVM.TotalQuestions;
+                vm.Accuracy = PremadeVM.Accuracy;
+                vm.ObsList_RLVM = PremadeVM.ObsList_RLVM;
                 await Navigation.PushAsync(v);
             }
             else

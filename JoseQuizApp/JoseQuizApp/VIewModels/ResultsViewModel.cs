@@ -12,8 +12,8 @@ namespace JoseQuizApp.VIewModels
     public class ResultsViewModel : ViewModel
     {
         public ObservableCollection<ResultsListViewModel> ObsList_RLVM { get; set; } = new ObservableCollection<ResultsListViewModel>();
-        public int CorrectQuestions { get; set; }
-        public int TotalQuestions { get; set; }
+        public int CorrectQuestions { get; set; } = 0;
+        public int TotalQuestions { get; set; } = 0;
         public string Accuracy { get; set; }
 
 

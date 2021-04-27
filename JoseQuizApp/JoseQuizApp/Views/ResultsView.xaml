@@ -21,6 +21,7 @@
             <RowDefinition Height="25"/>
             <RowDefinition Height="25"/>
             <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -36,9 +37,11 @@
         
         <Label Grid.Row="2" Grid.Column="0" Text="Accuracy:"/>
         <Label Grid.Row="2" Grid.Column="1" Text="{Binding Accuracy}"/>
-        
+
+        <Button Grid.Row="3"/>
+
         <ListView
-            Grid.Row="3" Grid.ColumnSpan="2"
+            Grid.Row="4" Grid.ColumnSpan="2"
             ItemsSource="{Binding ObsList_RLVM}" 
             RowHeight="78">
             <ListView.ItemTemplate>
