@@ -9,6 +9,7 @@
             <TableSection>
                 <TextCell Text="{Binding QuestionVM.Question.Query}"/>
                 <EntryCell Label="Your Response:" Text="{Binding YourResponse.Response}"/>
+                <TextCell Text="{Binding Answer}"/>
             </TableSection>
         </TableView>
         <Button Text="Next" Command="{Binding Next_Clicked}"/>

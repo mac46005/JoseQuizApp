@@ -9,7 +9,7 @@ namespace JoseQuizApp.VIewModels
 {
     public class ResultsListViewModel : ViewModel
     {
-        public QuestionModel Question { get; set; }
-        public UserResponse UserResponse { get; set; }
+        public QuestionModel Question { get; set; } = new QuestionModel();
+        public UserResponse UserResponse { get; set; } = new UserResponse();
     }
 }

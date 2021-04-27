@@ -96,7 +96,7 @@ namespace JoseQuizApp.Logic
             var vm = Resolver.Resolve<ResultsViewModel>();
 
 
-            for (int i = 0; i < Quiz.UserResponses.Count - 1; i++)
+            for (int i = 0; i < Quiz.UserResponses.Count; i++)
             {
                 if (Quiz.UserResponses[i].Response == Quiz.AnswersList[i].Answer.Solution)
                 {

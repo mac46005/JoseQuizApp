@@ -6,6 +6,7 @@ using JoseQuizApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -15,17 +16,19 @@ namespace JoseQuizApp.VIewModels
     public class QuizViewModel : ViewModel
     {
         private readonly QuizManager _quizManager;
+        private readonly AnswerRepository _answerRepository;
 
-        public QuizViewModel(QuizManager quizManager)
+        public QuizViewModel(QuizManager quizManager,AnswerRepository answerRepository)
         {
             _quizManager = quizManager;
+            _answerRepository = answerRepository;
         }
 
         public string QuestionCount { get; set; }
         public QuestionItemViewModel QuestionVM { get; set; }
         public UserResponse YourResponse { get; set; } = new UserResponse();
         public int Count { get; set; } = 0;
-
+        public string Answer { get; set; }
 
         public void LoadQuestion()
         {
@@ -61,8 +64,12 @@ namespace JoseQuizApp.VIewModels
                 var vm = v.BindingContext as QuizViewModel;
                 vm.Count += Count + 1;
                 vm.LoadQuestion();
+
+                var answerlist = await _answerRepository.GetItems();
+                Answer = answerlist.Find(a => a.Id == QuestionVM.Question.Answer_Id).Solution;
+
                 await Navigation.PushAsync(v);
-                
+                Thread.Sleep(5000);
             }
         });
     }

@@ -38,15 +38,14 @@
         <Label Grid.Row="2" Grid.Column="0" Text="Accuracy:"/>
         <Label Grid.Row="2" Grid.Column="1" Text="{Binding Accuracy}"/>
 
-        <Button Grid.Row="3"/>
+        <Button Grid.Row="3" Text="Done" Command="{Binding Done_Clicked}"/>
 
         <ListView
             Grid.Row="4" Grid.ColumnSpan="2"
-            ItemsSource="{Binding ObsList_RLVM}" 
-            RowHeight="78">
+            RowHeight="200">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid BackgroundColor="{Binding UserResponse.IsCorrect,Converter={StaticResource cConverter}}">
+                    <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
@@ -56,12 +55,12 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Row="0" Grid.Column="0" Text="Question"/>
+                        <!--<Label Grid.Row="0" Grid.Column="0" Text="Question"/>
                         <Label Grid.Row="0" Grid.Column="1" Text="{Binding Question.Query}"/>
                         <Label Grid.Row="1" Grid.Column="0" Text="Your Answer"/>
                         <Label Grid.Row="1" Grid.Column="1" Text="{Binding UserResponse.Response}"/>
                         <Label Grid.Row="2" Grid.Column="0" Text="The Answer"/>
-                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding Question.Answer.Solution}"/>
+                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding Question.Answer.Solution}"/>-->
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
