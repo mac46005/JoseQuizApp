@@ -25,6 +25,7 @@ namespace JoseQuizApp
 
         protected override void OnSleep()
         {
+            //this.Properties["QuestionCount"] = 10;
         }
 
         protected override void OnResume()

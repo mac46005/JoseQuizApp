@@ -12,6 +12,7 @@
                 <TextCell Text="{Binding Answer}"/>
             </TableSection>
         </TableView>
-        <Button Text="Next" Command="{Binding Next_Clicked}"/>
+        <Button Text="Submit" Command="{Binding Submit_Clicked}" IsEnabled="{Binding SubmitBtnIsEnabled}"/>
+        <Button Text="Next" Command="{Binding Next_Clicked}" IsEnabled="{Binding NextBtnIsEnabled}" />
     </StackLayout>
 </ContentPage>
