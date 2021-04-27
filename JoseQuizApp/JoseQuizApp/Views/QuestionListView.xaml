@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="JoseQuizApp.Views.QuestionListView">
+             x:Class="JoseQuizApp.Views.QuestionListView"
+             Title="Question View List">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -14,6 +15,7 @@
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="20"/>
@@ -25,6 +27,8 @@
                             <Label Text="{Binding Question.Id}" Grid.Column="1"/>
                             <Label Text="Value:" Grid.Column="2"/>
                             <Label Text="{Binding Question.Query}" Grid.Column="3"/>
+                            <Label Text="Answer:" Grid.Row="1" Grid.Column="0"/>
+                            <Label Text="{Binding Question.Answer.Solution}" Grid.Row="1" Grid.Column="1"/>
                         </Grid>
 
                     </ViewCell>

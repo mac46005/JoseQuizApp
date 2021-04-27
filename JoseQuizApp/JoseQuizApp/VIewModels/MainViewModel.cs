@@ -19,7 +19,7 @@ namespace JoseQuizApp.ViewModels
             _quizManager = quizManager;
             /////////////////////////////////////////////////////////
             ///LoadThisOnce
-            Task.Run(async() => await _quizManager.LoadDataOnce());
+            //Task.Run(async() => await _quizManager.LoadDataOnce());
             /////////////////////////////////////////////////////////
         }
 

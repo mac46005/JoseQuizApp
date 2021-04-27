@@ -47,8 +47,7 @@ namespace JoseQuizApp.VIewModels
             {
                 //results page
                 var v = Resolver.Resolve<ResultsView>();
-                var vm = v.BindingContext as ResultsViewModel;
-                vm = _quizManager.EvaluateQuiz();
+                v.BindingContext = _quizManager.EvaluateQuiz();
                 await Navigation.PushAsync(v);
             }
             else
