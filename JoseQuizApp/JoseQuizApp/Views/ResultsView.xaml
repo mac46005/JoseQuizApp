@@ -41,6 +41,7 @@
         <Button Grid.Row="3" Text="Done" Command="{Binding Done_Clicked}"/>
 
         <ListView
+            ItemsSource="{Binding ObsList_RLVM}"
             Grid.Row="4" Grid.ColumnSpan="2"
             RowHeight="200">
             <ListView.ItemTemplate>

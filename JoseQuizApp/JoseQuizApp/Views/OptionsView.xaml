@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="JoseQuizApp.Views.OptionsView">
+             x:Class="JoseQuizApp.Views.OptionsView"
+             Title="Options">
     <ContentPage.Content>
         <StackLayout>
             <TableView>
                 <TableSection>
-                    <EntryCell Label="Question Count:" Text="{Binding QuestionCount}"/>
+                    <EntryCell LabelColor="White" Label="Question Count:" Text="{Binding QuestionCount}"/>
                 </TableSection>
             </TableView>
             <Button Text="Apply" Command="{Binding Apply}"/>

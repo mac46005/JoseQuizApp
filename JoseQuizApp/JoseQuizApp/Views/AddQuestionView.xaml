@@ -6,19 +6,17 @@
     <ContentPage.Content>
         <StackLayout>
             <TableView>
-                <TableRoot>
-                    <TableSection>
-                        <EntryCell Label="Value:" Text="{Binding Question.Query}"/>
-                        <TextCell Text="Select Answer"/>
-                        <ViewCell>
-                            <Picker ItemsSource="{Binding AnswerList}"
+                <TableSection>
+                    <EntryCell LabelColor="White" Label="Value:" Text="{Binding Question.Query}"/>
+                    <TextCell Text="Select Answer associated BELOW:"/>
+                    <ViewCell>
+                        <Picker ItemsSource="{Binding AnswerList}"
                                     SelectedItem="{Binding SelectedAnswer}"
                                     ItemDisplayBinding="{Binding Solution}"
                                     >
-                            </Picker>
-                        </ViewCell>
-                    </TableSection>
-                </TableRoot>
+                        </Picker>
+                    </ViewCell>
+                </TableSection>
             </TableView>
             <Button Text="Submit" Command="{Binding Submit_Clicked}"/>
         </StackLayout>

@@ -278,7 +278,7 @@ namespace JoseQuizApp.Logic
 
             for (int i = 0; i < Quiz.UserResponses.Count; i++)
             {
-                if (Quiz.UserResponses[i].Response == Quiz.AnswersList[i].Answer.Solution)
+                if (Quiz.UserResponses[i].Response.Trim() == Quiz.AnswersList[i].Answer.Solution.Trim())
                 {
                     Quiz.UserResponses[i].IsCorrect = true;
                 }
