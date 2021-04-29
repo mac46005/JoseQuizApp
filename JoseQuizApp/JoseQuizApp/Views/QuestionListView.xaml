@@ -25,10 +25,13 @@
                             </Grid.ColumnDefinitions>
                             <Label Text="Id." Grid.Column="0"/>
                             <Label Text="{Binding Question.Id}" Grid.Column="1"/>
-                            <Label Text="Value:" Grid.Column="2"/>
-                            <Label Text="{Binding Question.Query}" Grid.Column="3"/>
-                            <Label Text="Answer:" Grid.Row="1" Grid.Column="0"/>
-                            <Label Text="{Binding Question.Answer.Solution}" Grid.Row="1" Grid.Column="1"/>
+                            <Label Text="Value:" Grid.Column="2" BackgroundColor="#cc7a00"/>
+                            <Label Text="{Binding Question.Query}" Grid.Column="3" 
+                                    BackgroundColor="#cc7a00"/>
+                            <Label Text="Answer:" Grid.Row="1" Grid.Column="0"
+                                   BackgroundColor="#006600"/>
+                            <Label Text="{Binding Question.Answer.Solution}" Grid.Row="1" Grid.Column="1"
+                                   BackgroundColor="#006600"/>
                         </Grid>
 
                     </ViewCell>

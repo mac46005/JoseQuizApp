@@ -226,12 +226,12 @@ namespace JoseQuizApp.Logic
             {
                 if (i % 2 == 0)
                 {
-                    answers[ac] = array[i];
+                    answers[ac] = array[i].Trim();
                     ac++;
                 }
                 else
                 {
-                    questions[qc] = array[i];
+                    questions[qc] = array[i].Trim();
                     qc++;
                 }
             }
@@ -301,7 +301,7 @@ namespace JoseQuizApp.Logic
 
 
 
-            for (int i = 0; i < Quiz.QuestionsList.Count - 1; i++)
+            for (int i = 0; i < Quiz.QuestionsList.Count; i++)
             {
                 vm.ObsList_RLVM.Add(new ResultsListViewModel
                 {

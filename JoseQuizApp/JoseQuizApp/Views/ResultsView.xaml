@@ -51,13 +51,13 @@
                     <ViewCell>
                         <Grid BackgroundColor="{Binding UserResponse.IsCorrect,Converter={StaticResource cConverter}}">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
                             <Label Grid.Row="0" Grid.Column="0" Text="Question"/>
                             <Label Grid.Row="0" Grid.Column="1" Text="{Binding Question.Query}"/>
