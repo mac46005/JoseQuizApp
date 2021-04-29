@@ -14,6 +14,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:ResultItemColorConverter x:Key="cConverter"/>
+            <converters:SecondaryColorResultItemColorConverter x:Key="scConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
     <Grid>
@@ -21,20 +22,20 @@
             <RowDefinition Height="25"/>
             <RowDefinition Height="25"/>
             <RowDefinition Height="25"/>
-            <RowDefinition Height="25"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
+
         <Label Grid.Row="0" Grid.Column="0" Text="Correct Questions:"/>
         <Label Grid.Row="0" Grid.Column="1" Text="{Binding CorrectQuestions}"/>
-        
+
         <Label Grid.Row="1" Grid.Column="0" Text="Total Questions:"/>
         <Label Grid.Row="1" Grid.Column="1" Text="{Binding TotalQuestions}"/>
-        
+
         <Label Grid.Row="2" Grid.Column="0" Text="Accuracy:"/>
         <Label Grid.Row="2" Grid.Column="1" Text="{Binding Accuracy}"/>
 
@@ -43,26 +44,32 @@
         <ListView
             ItemsSource="{Binding ObsList_RLVM}"
             Grid.Row="4" Grid.ColumnSpan="2"
-            RowHeight="200">
+            RowHeight="150"
+            >
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <!--<Label Grid.Row="0" Grid.Column="0" Text="Question"/>
-                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Question.Query}"/>
-                        <Label Grid.Row="1" Grid.Column="0" Text="Your Answer"/>
-                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding UserResponse.Response}"/>
-                        <Label Grid.Row="2" Grid.Column="0" Text="The Answer"/>
-                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding Question.Answer.Solution}"/>-->
-                    </Grid>
+                    <ViewCell>
+                        <Grid BackgroundColor="{Binding UserResponse.IsCorrect,Converter={StaticResource cConverter}}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Text="Question"/>
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Question.Query}"/>
+                            <Label BackgroundColor="{Binding UserResponse.IsCorrect,Converter={StaticResource scConverter}}" 
+                                   Grid.Row="1" Grid.Column="0" Text="Your Answer"/>
+                            <Label BackgroundColor="{Binding UserResponse.IsCorrect,Converter={StaticResource scConverter}}" 
+                                   Grid.Row="1" Grid.Column="1" Text="{Binding UserResponse.Response}"/>
+                            <Label Grid.Row="2" Grid.Column="0" Text="The Answer"/>
+                            <Label Grid.Row="2" Grid.Column="1" Text="{Binding Question.Answer.Solution}"/>
+                        </Grid>
+                    </ViewCell>
+
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

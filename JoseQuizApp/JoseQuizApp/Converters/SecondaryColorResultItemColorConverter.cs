@@ -6,28 +6,28 @@ using Xamarin.Forms;
 
 namespace JoseQuizApp.Converters
 {
-    public class ResultItemColorConverter : IValueConverter
+    class SecondaryColorResultItemColorConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            Color color = Color.Accent;
+            Color colorResult = Color.Accent;
             if (value is bool)
             {
                 bool isTrue = (bool)value;
                 if (isTrue == true)
                 {
-                    //green
-                    color = Color.FromHex("#00802b");
+                    //dark green
+                    colorResult = Color.FromHex("#004d00");
+
                 }
                 else
                 {
-                    //red
-                    color = Color.FromHex("#ff4d4d");
+                    //dark red
+                    colorResult = Color.FromHex("#990000");
+
                 }
-
-
             }
-            return color;
+            return colorResult;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
